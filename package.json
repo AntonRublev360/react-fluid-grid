@@ -1,0 +1,71 @@
+{
+  "author": "anton.v.rublev@gmail.com",
+  "bugs": {
+    "url": "https://github.com/AntonRublev360/react-fluid-grid/issues"
+  },
+  "description": "Responsive layout similar to pinterest. Items placed in columns according to their order and height.",
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.47",
+    "@babel/plugin-proposal-export-default-from": "^7.0.0-beta.47",
+    "@babel/preset-env": "^7.0.0-beta.47",
+    "@babel/preset-react": "^7.0.0-beta.47",
+    "@storybook/react": "^3.4.5",
+    "babel-core": "^7.0.0-bridge.0",
+    "classnames": "^2.2.5",
+    "css-element-queries": "^1.0.2",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "jest": "^22.4.4",
+    "prop-types": "^15.6.1",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "rollup": "^0.59.1",
+    "rollup-plugin-babel": "^4.0.0-beta.4",
+    "rollup-plugin-commonjs": "^9.1.3",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "standard": "^11.0.1"
+  },
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/AntonRublev360/react-fluid-grid#readme",
+  "jsnext": "dist/index.es.js",
+  "keywords": [
+    "react",
+    "pinterest",
+    "fluid",
+    "grid",
+    "stacking",
+    "layout"
+  ],
+  "license": "MIT",
+  "main": "dist/index.cjs.js",
+  "name": "react-fluid-grid",
+  "peerDependencies": {
+    "prop-types": "^15.6.1",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AntonRublev360/react-fluid-grid.git"
+  },
+  "scripts": {
+    "build": "NODE_ENV=production rollup -c",
+    "dev": "start-storybook -p 9001",
+    "lint": "standard",
+    "static": "build-storybook -o docs",
+    "test": "jest --config ./jest/config.js"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "ignore": [
+      "dist",
+      "docs"
+    ]
+  },
+  "version": "0.0.1",
+  "dependencies": {}
+}
