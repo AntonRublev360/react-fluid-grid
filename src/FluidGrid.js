@@ -26,22 +26,8 @@ class FluidGrid extends React.Component {
     this.updateGridStyles = this.updateGridStyles.bind(this)
   }
 
-  static getDerivedStateFromProps (nextProps) {
-    const {
-      gutterHeight,
-      gutterWidth,
-      numberOfColumns
-    } = getStyle(nextProps.styleStrategies)
-    return Object.assign({}, {
-      columnWidth: getColumnWidth(numberOfColumns),
-      gutterHeight,
-      gutterWidth,
-      numberOfColumns
-    })
-  }
-
   componentDidMount () {
-    this.updateLayout()
+    this.updateGridStyles()
   }
 
   componentDidUpdate (prevProps, prevState) {

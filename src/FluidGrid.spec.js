@@ -31,9 +31,10 @@ describe('FluidGrid', () => {
     expect(rendered.find('.fluid-grid')).toHaveLength(1)
   })
 
-  it('updates grid layout once mounted', () => {
+  it('updates grid styles once mounted', () => {
+    const updateGridStylesSpy = jest.spyOn(instance, 'updateGridStyles')
     instance.componentDidMount()
-    expect(updateLayoutSpy).toHaveBeenCalled()
+    expect(updateGridStylesSpy).toHaveBeenCalled()
   })
 
   it('calculates styles state when grid width changes', () => {
@@ -48,30 +49,6 @@ describe('FluidGrid', () => {
       gutterHeight: 10,
       gutterWidth: 10,
       numberOfColumns: 3
-    })
-  })
-
-  describe('getDerivedStateFromProps', () => {
-    const nextPropsStub = {
-      styleStrategies: []
-    }
-    let newState
-
-    beforeEach(() => {
-      newState = FluidGrid.getDerivedStateFromProps(nextPropsStub)
-    })
-
-    it('derives styles from from styleStrategies', () => {
-      expect(getStyle).toHaveBeenCalledWith(nextPropsStub.styleStrategies)
-    })
-
-    it('calculates styles state when props change', () => {
-      expect(newState).toEqual({
-        columnWidth: 50,
-        gutterHeight: 0,
-        gutterWidth: 0,
-        numberOfColumns: 2
-      })
     })
   })
 

@@ -1,5 +1,5 @@
 export default {
-  numberOfColumns: 3,
+  numberOfColumns: 1,
   gutterHeight: 0,
   gutterWidth: 0
 }

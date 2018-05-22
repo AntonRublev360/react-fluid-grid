@@ -66,5 +66,7 @@
     ]
   },
   "version": "1.0.1",
-  "dependencies": {}
+  "dependencies": {
+    "detect-node": "^2.0.3"
+  }
 }

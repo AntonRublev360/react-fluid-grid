@@ -39,12 +39,12 @@ function FluidGridItem ({
 
 FluidGridItem.propTypes = {
   children: PropTypes.node,
-  columnWidth: PropTypes.number.isRequired,
+  columnWidth: PropTypes.number,
   gridWidth: PropTypes.number,
-  gutterWidth: PropTypes.number.isRequired,
+  gutterWidth: PropTypes.number,
   item: PropTypes.object,
   index: PropTypes.number.isRequired,
-  numberOfColumns: PropTypes.number.isRequired,
+  numberOfColumns: PropTypes.number,
   onHeightChange: PropTypes.func.isRequired,
   registerItem: PropTypes.func.isRequired,
   transition: PropTypes.string

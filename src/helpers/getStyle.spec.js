@@ -1,5 +1,6 @@
 import getStyle from './getStyle'
 import DEFAULT_STYLE from '../enums/defaultGridStyle'
+jest.mock('detect-node', () => false)
 
 describe('FluidGrid getStyle helper', () => {
   let matchMedia
