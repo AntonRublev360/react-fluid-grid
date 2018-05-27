@@ -7,6 +7,7 @@ jest.mock('./helpers/getStyle')
 
 describe('FluidGrid', () => {
   let rendered, instance, updateLayoutSpy
+  const EmptyComponent = () => null
 
   beforeEach(() => {
     getStyle.mockReturnValue({
@@ -21,6 +22,7 @@ describe('FluidGrid', () => {
         <div style={{ height: 100 }} />
         <div style={{ height: 100 }} />
         <div style={{ height: 100 }} />
+        <EmptyComponent />
       </FluidGrid>
     )
     instance = rendered.instance()
@@ -102,7 +104,7 @@ describe('FluidGrid', () => {
       const items = rendered.find(FluidGridItem)
       items.forEach((item) => {
         const child = item.find('div').at(0).props()
-        item.props().registerItem({ clientHeight: child.style.height })
+        item.props().registerItem({ clientHeight: child.style ? child.style.height : 0 })
       })
     })
 
@@ -144,6 +146,12 @@ describe('FluidGrid', () => {
           element: expect.anything(),
           top: 300,
           left: 0,
+          horizontalGutterShift: 0
+        },
+        '5': {
+          element: expect.anything(),
+          top: 300,
+          left: 50,
           horizontalGutterShift: 0
         }
       }

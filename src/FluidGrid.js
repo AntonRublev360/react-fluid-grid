@@ -6,6 +6,7 @@ import FluidGridItem from './FluidGridItem/FluidGridItem'
 import getShortestColumn from './helpers/getShortestColumn'
 import getLongestColumn from './helpers/getLongestColumn'
 import getColumns from './helpers/getColumns'
+import getColumnHeightShift from './helpers/getColumnHeightShift'
 import defaultStyleStrategies from './enums/defaultStyleStrategies'
 import getStyle from './helpers/getStyle'
 
@@ -68,7 +69,8 @@ class FluidGrid extends React.Component {
   pushToColumn (item, column) {
     const { gutterHeight } = this.state
     const itemHeight = item.element.clientHeight
-    column.height = column.height + itemHeight + gutterHeight
+    const heightShift = getColumnHeightShift(itemHeight, gutterHeight)
+    column.height = column.height + heightShift
   }
 
   setItemStyle (item, column) {
