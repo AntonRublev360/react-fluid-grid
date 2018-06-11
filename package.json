@@ -53,6 +53,7 @@
     "build": "NODE_ENV=production rollup -c",
     "dev": "start-storybook -p 9001",
     "lint": "standard",
+    "prepublishOnly": "npm run build",
     "static": "build-storybook -o docs",
     "test": "jest --config ./jest/config.js"
   },
