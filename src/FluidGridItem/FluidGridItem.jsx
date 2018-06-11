@@ -51,7 +51,7 @@ FluidGridItem.propTypes = {
 }
 
 FluidGridItem.defaultProps = {
-  transition: 'top 200ms ease-in-out, left 200ms ease-in-out'
+  transition: 'top 200ms ease-in-out, left 200ms ease-in-out, width 200ms ease-in-out'
 }
 
 export default FluidGridItem

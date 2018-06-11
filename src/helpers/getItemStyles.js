@@ -5,22 +5,47 @@ const DEFAULT_ITEM_STYLES = {
   left: 0,
   top: 0
 }
-export default function getItemStyles (item, {
+
+export default function getItemStyles (item, dridStyles) {
+  const mergedStyles = Object.assign({}, DEFAULT_ITEM_STYLES, item, dridStyles)
+  mergedStyles.outerGutterPortion = getOuterGutterPortion(dridStyles.gutterWidth, dridStyles.numberOfColumns)
+  return dridStyles.gridWidth
+    ? getItemStylesForKnownWidth(mergedStyles)
+    : getItemStylesForUnknownWidth(mergedStyles)
+}
+
+function getItemStylesForKnownWidth ({
   columnWidth,
+  horizontalGutterShift,
   gridWidth,
+  outerGutterPortion,
   gutterWidth,
-  numberOfColumns,
+  left,
+  top,
   transition
 }) {
-  const mergedStyles = Object.assign({}, DEFAULT_ITEM_STYLES, item)
-  const outerGutterPortion = getOuterGutterPortion(gutterWidth, numberOfColumns)
-  const left = gridWidth
-    ? `${mergedStyles.left * gridWidth / 100 + mergedStyles.horizontalGutterShift}px`
-    : `calc(${mergedStyles.left}% + ${mergedStyles.horizontalGutterShift}px)`
   return {
-    left,
+    left: `${left * gridWidth / 100 + horizontalGutterShift}px`,
     position: 'absolute',
-    top: `${mergedStyles.top}px`,
+    top: `${top}px`,
+    transition,
+    width: `${gridWidth * columnWidth / 100 - gutterWidth + outerGutterPortion}px`
+  }
+}
+
+function getItemStylesForUnknownWidth ({
+  columnWidth,
+  horizontalGutterShift,
+  outerGutterPortion,
+  gutterWidth,
+  left,
+  top,
+  transition
+}) {
+  return {
+    left: `calc(${left}% + ${horizontalGutterShift}px)`,
+    position: 'absolute',
+    top: `${top}px`,
     transition,
     width: `calc(${columnWidth}% - ${gutterWidth}px + ${outerGutterPortion}px)`
   }
