@@ -110,10 +110,7 @@ describe('FluidGrid', () => {
 
     it('updates grid height', () => {
       instance.updateLayout()
-      expect(instance.state).toHaveProperty('style', {
-        height: '400px',
-        position: 'relative'
-      })
+      expect(instance.state).toHaveProperty('height', '400px')
     })
 
     it('updates grid layout', () => {
