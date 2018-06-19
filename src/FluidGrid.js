@@ -15,10 +15,9 @@ class FluidGrid extends React.Component {
     super(props)
     this.state = {
       items: {},
-      style: {
-        height: '0px',
-        position: 'relative'
-      }
+      height: '0px',
+      overflow: 'hidden',
+      position: 'relative'
     }
     this.items = {}
     this.updateLayout = this.updateLayout.bind(this)
@@ -87,10 +86,7 @@ class FluidGrid extends React.Component {
 
   applyChanges () {
     this.setState({
-      style: {
-        height: `${this.gridHeight}px`,
-        position: 'relative'
-      },
+      height: `${this.gridHeight}px`,
       items: this.items
     })
   }
@@ -146,7 +142,16 @@ class FluidGrid extends React.Component {
 
   render () {
     const { className } = this.props
-    const { style } = this.state
+    const {
+      height,
+      overflow,
+      position
+    } = this.state
+    const style = {
+      height,
+      overflow,
+      position
+    }
     return (
       <div className={className} style={style}>
         <ResizeObservingContainer onWidthChange={this.updateGridStyles}>
