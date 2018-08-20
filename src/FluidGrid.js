@@ -118,12 +118,13 @@ class FluidGrid extends React.Component {
 
   renderChild (child, index) {
     const { columnWidth, gridWidth, gutterWidth, items, numberOfColumns } = this.state
-    const { transition } = this.props
+    const { itemClassName, transition } = this.props
     const registerItem = (element) => {
       this.items[index] = { element }
     }
     return (
       <FluidGridItem
+        className={itemClassName}
         columnWidth={columnWidth}
         gridWidth={gridWidth}
         gutterWidth={gutterWidth}
@@ -174,12 +175,14 @@ const styleStrategyShape = {
 FluidGrid.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
+  itemClassName: PropTypes.string,
   styleStrategies: PropTypes.arrayOf(PropTypes.shape(styleStrategyShape)),
   transition: PropTypes.string
 }
 
 FluidGrid.defaultProps = {
   className: '',
+  itemClassName: '',
   styleStrategies: defaultStyleStrategies
 }
 
