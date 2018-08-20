@@ -5,6 +5,7 @@ import getItemStyles from '../helpers/getItemStyles'
 
 function FluidGridItem ({
   children,
+  className,
   columnWidth,
   gridWidth,
   gutterWidth,
@@ -27,6 +28,7 @@ function FluidGridItem ({
   })
   return (
     <div
+      className={className}
       ref={registerItem}
       style={style}
     >
@@ -39,6 +41,7 @@ function FluidGridItem ({
 
 FluidGridItem.propTypes = {
   children: PropTypes.node,
+  className: PropTypes.string,
   columnWidth: PropTypes.number,
   gridWidth: PropTypes.number,
   gutterWidth: PropTypes.number,
@@ -51,6 +54,7 @@ FluidGridItem.propTypes = {
 }
 
 FluidGridItem.defaultProps = {
+  className: '',
   transition: 'top 200ms ease-in-out, left 200ms ease-in-out, width 200ms ease-in-out'
 }
 
