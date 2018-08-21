@@ -42,6 +42,7 @@ const transition = 'top 100ms ease-in-out, left 100ms ease-in-out'
 export default () => (
   <FluidGrid
     className='my-grid'
+    itemClassName='my-grid-item'
     styleStrategies={styleStrategies}
     transition={transition}
   >
@@ -59,6 +60,9 @@ export default () => (
 
 ## className
 Optional. Class name that will be assigned to the grid's containing div element.
+
+## itemClassName
+Optional. Class name that will be assigned to the grid items' containing div elements.
 
 ## styleStrategies
 Optional. An array of styleStrategies that allows to control number of columns and gutter sizes in a responsive way.
