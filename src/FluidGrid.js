@@ -56,7 +56,9 @@ class FluidGrid extends React.Component {
   }
 
   arrangeItems () {
-    Object.values(this.items).forEach(this.pushToShortestColumn)
+    Object.values(this.items)
+    .filter(({element}) => element)
+    .forEach(this.pushToShortestColumn);
   }
 
   pushToShortestColumn (item) {
